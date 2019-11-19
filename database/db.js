@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/players', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb://localhost/players', { useNewUrlParser: true, useUnifiedTopology: true }).catch(err => console.log(err));
 
 const { Schema } = mongoose;
 
@@ -12,7 +12,7 @@ const playerSchema = new Schema({
   height: String,
   weight: Number,
   age: Number,
-  seasonStats: Object
+  seasonStats: Object,
 });
 
 const player = mongoose.model('player', playerSchema);
