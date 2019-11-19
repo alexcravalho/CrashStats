@@ -38,12 +38,13 @@ function TeamA(props) {
         newVal+= props.calculateOverall(player)
       })
       setTotalValue((newVal).toFixed(2))
+      props.setTeamAOverall((newVal).toFixed(2))
     }
   })
 
   return(
     <div className="team-a">
-      <div>Team A</div>
+      <div className="teams" >Team A</div>
       <div className="heavy">Total : {totalValue}</div>
       <SearchBarA aList={aList} addAList={addAList} playerList={props.playerList}/>
       <label className="heavy">Traded Players</label><div>
