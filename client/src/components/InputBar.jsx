@@ -7,6 +7,7 @@ const InputBar = (props) => {
 
   const handleChange = event => {
     setText(event.target.value);
+    // props.setWeightObj({props.num: event.target.value})
   };
 
   return(

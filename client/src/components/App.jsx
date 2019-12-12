@@ -11,7 +11,7 @@ function App(props) {
   const [teamAOverall, setTeamAOverall] = useState(0);
   const [teamBOverall, setTeamBOverall] = useState(0);
   const [fairTrade, setFairTrade] = useState('');
-
+  const [weightObj, setWeightObj] = useState({});
 
   useEffect(() => {
     axios.get(`/api/players`)
@@ -66,12 +66,12 @@ function App(props) {
   return (
   <div className="main-container">
     <div className="main-color"></div>
-    {/* <div>Enter the weights of Player stats here</div>
+    <div>Enter the weights of Player stats here</div>
     <div className="settings">
       {labels.map((label, idx) => (
-        <InputBar key={idx} text={label}/>
+        <InputBar setWeightObj={setWeightObj} key={idx} num={idx} text={label}/>
       ))}
-    </div> */}
+    </div>
     <div className="titles">
     <h1>Crash Stats</h1>
     <h1>Trade Calculator</h1>
