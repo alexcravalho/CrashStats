@@ -1,7 +1,7 @@
 const path = require('path');
 
 const src = path.join(__dirname, '/client/src');
-const dist = path.join(__dirname, '/client/src/dist');
+const public = path.join(__dirname, '/client/src/dist');
 
 module.exports = {
   mode: 'development',
@@ -10,7 +10,7 @@ module.exports = {
   },
   output: {
     filename: 'bundle.js',
-    path: dist,
+    path: public,
   },
   resolve: {
     extensions: ['*', '.js', '.jsx'],
