@@ -5,7 +5,7 @@ import TeamA from './TeamA.jsx';
 import TeamB from './TeamB.jsx';
 
 function App(props) {
-  const [labels, setLabel] = useState(['Goals :', 'Assists :', 'Points :', '+/- :', 'Penalty Min :', 'Hits :', 'Shots on Goal :', 'Power Play Goals :', 'Power Play Points :', 'Time on Ice :'])
+  const [labels, setLabel] = useState(['Goals :', 'Assists :', 'Points :', 'Plus Minus:', 'Penalty Min :', 'Hits :', 'Shots on Goal :', 'Power Play Goals :', 'Power Play Points :', 'Blocked Shots :', 'Wins :', 'Goals Against :', 'Saves :', 'Shutouts :'])
 
   const [playerList, setPlayerList] = useState([]);
   const [teamAOverall, setTeamAOverall] = useState(0);
@@ -19,23 +19,25 @@ function App(props) {
     .catch((err) => { console.log(err) })
   }, [])
 
-  const calculateOverall = (player) => {
+  const calculateOverall = (player, weight) => {
     var overall = 0;
     var p = player.seasonStats;
     if (player.position.toLowerCase() === "goalie") {
-      overall+= p.wins * 5;
-      overall+= p.goalsAgainst * -2;
-      overall+= p.saves *.6;
-      overall+= p.shutouts * 5;
+      overall+= p.wins * (Number(weightObj[10]) || 5);
+      overall+= p.goalsAgainst * (Number(weightObj[11]) || -2);
+      overall+= p.saves * (Number(weightObj[12]) || .6);
+      overall+= p.shutouts * (Number(weightObj[13]) || 5);
     } else {
-      overall+= p.goals * 6;
-      overall+= p.assists * 4;
-      overall+= p.shots * .9;
-      overall+= p.hits * .3;
-      overall+= p.pim * .4;
-      overall+= p.plusMinus * 2;
-      overall+= p.powerPlayPoints * 2;
-      overall+= p.blocked;
+      overall+= p.goals * (Number(weightObj[0]) || 6);
+      overall+= p.assists * (Number(weightObj[1]) || 4);
+      overall+= p.points * (Number(weightObj[2]) || 0);
+      overall+= p.plusMinus * (Number(weightObj[3]) || 2);
+      overall+= p.pim * (Number(weightObj[4]) || .4);
+      overall+= p.hits * (Number(weightObj[5]) || .3);
+      overall+= p.shots * (Number(weightObj[6]) || .9);
+      overall+= p.powerPlayGoals * (Number(weightObj[7]) || 0);
+      overall+= p.powerPlayPoints * (Number(weightObj[8]) || 2);
+      overall+= p.blocked * (Number(weightObj[9]) || 1);
     }
     return overall;
   }
@@ -69,7 +71,7 @@ function App(props) {
     <div>Enter the weights of Player stats here</div>
     <div className="settings">
       {labels.map((label, idx) => (
-        <InputBar setWeightObj={setWeightObj} key={idx} num={idx} text={label}/>
+        <InputBar setWeightObj={setWeightObj} key={idx} num={idx} text={label} obj={weightObj} />
       ))}
     </div>
     <div className="titles">
@@ -82,7 +84,7 @@ function App(props) {
     {fairTrade === 'good' && <div className="fair-trade">Fair Trade ✓</div>}
     {fairTrade === 'bad' && <div className="bad-trade">Bad Trade ✘</div>}
     <div className="trade-dash">
-        <TeamA setTeamAOverall={setTeamAOverall} calculateOverall={calculateOverall} playerList={playerList}/>
+        <TeamA setTeamAOverall={setTeamAOverall} calculateOverall={calculateOverall} weight={weightObj} playerList={playerList}/>
         <TeamB setTeamBOverall={setTeamBOverall} calculateOverall={calculateOverall} playerList={playerList}/>
     </div>
   </div>
