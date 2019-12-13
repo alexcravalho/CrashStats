@@ -35,9 +35,8 @@ function TeamA(props) {
     var newVal = 0;
     if (aList) {
       aList.forEach((player) => {
-        newVal+= props.calculateOverall(player, props.weight)
+        newVal+= props.calculateOverall(player)
       })
-      // console.log(newVal)
       setTotalValue((newVal).toFixed(2))
       props.setTeamAOverall((newVal).toFixed(2))
     }
@@ -45,7 +44,7 @@ function TeamA(props) {
 
   return(
     <div className="team-a">
-      <div className="teams" >Team A</div>
+      <div className="teams">Team A</div>
       <div className="heavy">Total : {totalValue}</div>
       <SearchBarA aList={aList} addAList={addAList} playerList={props.playerList}/>
       <label className="heavy">Traded Players</label><div>
