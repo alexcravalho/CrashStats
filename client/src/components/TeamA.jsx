@@ -35,8 +35,9 @@ function TeamA(props) {
     var newVal = 0;
     if (aList) {
       aList.forEach((player) => {
-        newVal+= props.calculateOverall(player)
+        newVal+= props.calculateOverall(player, props.weight)
       })
+      // console.log(newVal)
       setTotalValue((newVal).toFixed(2))
       props.setTeamAOverall((newVal).toFixed(2))
     }
