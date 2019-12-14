@@ -69,27 +69,35 @@ function App(props) {
 
   return (
   <div className="main-container">
-    <div className="main-color"></div>
-    <div className="titles">
-      <h1>Crash Stats</h1>
-      <h1>Trade Calculator</h1>
+    <div className="main-left">
+
     </div>
-    <img src="images/CrashLogo.png" alt="logo"></img>
+    <div className="main-center">
+      <div className="main-color"></div>
+      <div className="titles">
+        <h1>Crash Stats</h1>
+        <h1>Trade Calculator</h1>
+      </div>
+      <img src="images/CrashLogo.png" alt="logo"></img>
 
 
-    {fairTrade === '' && <div className="button_cont" align="center"><div className="example_a" onClick={compareOverallScores}>TRADE</div></div>}
-    {fairTrade === 'good' && <div className="fair-trade">Fair Trade ✓</div>}
-    {fairTrade === 'bad' && <div className="bad-trade">Bad Trade ✘</div>}
-    <div className='heavy'>To Change the weighting of points <div onClick={() => {setReveal(!reveal)} }>click here</div></div>
-    {reveal === true && <div className='heavy'>Enter the weights of Player stats here</div>}
-    {reveal === true && <div className="settings">
-      {labels.map((label, idx) => (
-        <InputBar setWeightObj={setWeightObj} key={idx} num={idx} text={label} obj={weightObj} />
-      ))}
-    </div>}
-    <div className="trade-dash">
-        <TeamA setTeamAOverall={setTeamAOverall} calculateOverall={calculateOverall} playerList={playerList}/>
-        <TeamB setTeamBOverall={setTeamBOverall} calculateOverall={calculateOverall} playerList={playerList}/>
+      {fairTrade === '' && <div className="button_cont" align="center"><div className="example_a" onClick={compareOverallScores}>TRADE</div></div>}
+      {fairTrade === 'good' && <div className="fair-trade">Fair Trade ✓</div>}
+      {fairTrade === 'bad' && <div className="bad-trade">Bad Trade ✘</div>}
+      <div className='heavy'>To Change the weighting of points <div onClick={() => {setReveal(!reveal)} }>click here</div></div>
+      {reveal === true && <div className='heavy'>Enter the weights of Player stats here</div>}
+      {reveal === true && <div className="settings">
+        {labels.map((label, idx) => (
+          <InputBar setWeightObj={setWeightObj} key={idx} num={idx} text={label} obj={weightObj} />
+        ))}
+      </div>}
+      <div className="trade-dash">
+          <TeamA setTeamAOverall={setTeamAOverall} calculateOverall={calculateOverall} playerList={playerList}/>
+          <TeamB setTeamBOverall={setTeamBOverall} calculateOverall={calculateOverall} playerList={playerList}/>
+      </div>
+    </div>
+    <div className="main-right">
+
     </div>
   </div>
   )

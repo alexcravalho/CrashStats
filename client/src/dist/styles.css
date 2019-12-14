@@ -1,10 +1,11 @@
 
 body {
-  display: flex;
-  background-image: url('./images/HockeyArena.jpg');
+  /* display: flex; */
+  /* background-image: url('./images/HockeyArena.jpg');
   background-repeat: no-repeat;
-  background-size: 100%;
-  font-family: "Sintony",Arial,sans-serif;
+  background-size: cover;
+  background-attachment: scroll;
+  font-family: "Sintony",Arial,sans-serif; */
 }
 
 #app {
@@ -14,6 +15,12 @@ body {
   justify-content: center;
   width: 100%;
   height: 100%;
+
+  display: flex;
+  background-image: url('./images/HockeyArena.jpg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-attachment: scroll;
 }
 
 h1 {
@@ -36,9 +43,19 @@ h2 {
 
 .main-container {
   display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.main-left, .main-right, .main-center {
+  display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   position: relative;
+  width: 100%;
   z-index: 1;
   margin: 50px;
 }
