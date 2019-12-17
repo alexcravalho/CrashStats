@@ -89,7 +89,7 @@ function App(props) {
       {!reveal && <div className='heavy'>To Change the Weighting System</div>}
       {!reveal && <a className='dropdown' onClick={() => { setReveal(!reveal) } }>click here</a>}
       {reveal && <a className='dropdown' onClick={() => { setReveal(!reveal) } }>collapse</a>}
-      {reveal && <div className='heavy'>Enter the weights of Player stats here</div>}
+      {reveal && <div className='heavy'>Edit Player Stats Weighting Here</div>}
       {reveal && <div className="settings">
         {labels.map((label, idx) => (
           <InputBar setWeightObj={setWeightObj} key={idx} num={idx} text={label} obj={weightObj} />
