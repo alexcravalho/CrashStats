@@ -15,7 +15,7 @@ const InputBar = (props) => {
 
   return(
     <div className="input-bar">
-      <label>{props.text}</label><input type="text" value={text} onChange={handleChange}></input>
+      <label>{props.text}</label><input type="text" className="dropdown-input" value={text} onChange={handleChange}></input>
     </div>
   )
 }
