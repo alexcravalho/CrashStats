@@ -62,7 +62,7 @@ function App(props) {
         setFairTrade('bad');
       }
     }
-    if (teamAOverall === teamAOverall) {
+    if (teamAOverall === teamBOverall) {
       setFairTrade('good')
     }
   }
@@ -70,7 +70,10 @@ function App(props) {
   return (
   <div className="main-container">
     <div className="main-left">
-
+      <div className="main-color"></div>
+      <div className="trade-dash">
+          <TeamA setTeamAOverall={setTeamAOverall} calculateOverall={calculateOverall} playerList={playerList}/>
+      </div>
     </div>
     <div className="main-center">
       <div className="main-color"></div>
@@ -79,25 +82,24 @@ function App(props) {
         <h1>Trade Calculator</h1>
       </div>
       <img src="images/CrashLogo.png" alt="logo"></img>
-
-
       {fairTrade === '' && <div className="button_cont" align="center"><div className="example_a" onClick={compareOverallScores}>TRADE</div></div>}
       {fairTrade === 'good' && <div className="fair-trade">Fair Trade ✓</div>}
       {fairTrade === 'bad' && <div className="bad-trade">Bad Trade ✘</div>}
-      <div className='heavy'>To Change the weighting of points <div onClick={() => {setReveal(!reveal)} }>click here</div></div>
-      {reveal === true && <div className='heavy'>Enter the weights of Player stats here</div>}
-      {reveal === true && <div className="settings">
+      {!reveal && <div className='heavy'>To Change the Weighting System</div>}
+      {!reveal && <a className='dropdown' onClick={() => { setReveal(!reveal) } }>click here</a>}
+      {reveal && <a className='dropdown' onClick={() => { setReveal(!reveal) } }>collapse</a>}
+      {reveal && <div className='heavy'>Enter the weights of Player stats here</div>}
+      {reveal && <div className="settings">
         {labels.map((label, idx) => (
           <InputBar setWeightObj={setWeightObj} key={idx} num={idx} text={label} obj={weightObj} />
         ))}
       </div>}
-      <div className="trade-dash">
-          <TeamA setTeamAOverall={setTeamAOverall} calculateOverall={calculateOverall} playerList={playerList}/>
-          <TeamB setTeamBOverall={setTeamBOverall} calculateOverall={calculateOverall} playerList={playerList}/>
-      </div>
     </div>
     <div className="main-right">
-
+      <div className="main-color"></div>
+      <div className="trade-dash">
+         <TeamB setTeamBOverall={setTeamBOverall} calculateOverall={calculateOverall} playerList={playerList}/>
+      </div>
     </div>
   </div>
   )
