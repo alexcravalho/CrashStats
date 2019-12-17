@@ -1,6 +1,6 @@
 const fs = require('fs');
 const axios = require('axios');
-const stream = fs.createWriteStream('database/players.json')
+const stream = fs.createWriteStream('/home/acrav/MVP/database/players.json')
 
 const getTeams = async () => {
     let teamsRequest = await axios.get('http://statsapi.web.nhl.com/api/v1/teams/?expand=team.roster')
@@ -21,6 +21,8 @@ const getTeams = async () => {
 
             let peopleRequest = await axios.get(`http://statsapi.web.nhl.com/api/v1/people/${player.person.id}`)
             var info = peopleRequest.data.people[0]
+            playerObj.firstName = info.firstName;
+            playerObj.lastName = info.lastName;
             playerObj.team = info.currentTeam.name;
             playerObj.shootsCatches = info.shootsCatches;
             playerObj.height = info.height;
