@@ -16,7 +16,6 @@ async function addData() {
       age: array[i].age,
       seasonStats: array[i].seasonStats
     };
-    // eslint-disable-next-line no-await-in-loop
     const newPlayer = await db.player.create(obj);
     promises.push(newPlayer);
   }

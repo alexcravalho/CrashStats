@@ -3,14 +3,9 @@ import React, { useState } from 'react';
 const ListNameA = (props) => {
 
   const [xbox, setXbox] = useState(false);
-
   const handleDelete = (player) => {
-    // var playerSelect = confirm(`Are you sure you want to remove ${props.player.name} from the trade?`)
-    // if (playerSelect) {
-      // alert(`${props.player.name} was removed from the trade`)
-      props.deleteAList(props.player);
-      setXbox(false);
-    // }
+    props.deleteAList(props.player);
+    setXbox(false);
   }
 
   return(

@@ -18,7 +18,7 @@ A bad trade is when one of the teams pays more than %5 to make the trade.
 1. clone this repo
 2. In the root directory of the repo run
   - npm install
-  - npm run react-dev
+  - npm run build
   - npm start
 
 3. Navigate to 'http://localhost:7000' on any browser

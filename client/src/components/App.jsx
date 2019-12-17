@@ -56,7 +56,6 @@ function App(props) {
     if (Number(teamBOverall) > Number(teamAOverall)) {
       var difference = teamBOverall - teamAOverall;
       var result = (difference / teamBOverall) * 100;
-      console.log(result)
       if (result <= 5) {
         setFairTrade('good');
       } else {
