@@ -6,19 +6,13 @@ function SearchBarA(props) {
 
   const handleChange = event => {
     setSearchTerm(event.target.value);
-
-    // console.log(results)
   };
 
   const handleClick = (player) => {
     if (props.aList.includes(player)) {
       alert(`${player.name} is already in this trade`)
     } else {
-      var playerSelect = confirm(`Are you sure you want to add ${player.name} to the trade?`)
-      if (playerSelect) {
-        alert(`${player.name} was added to the trade`)
-        props.addAList(player)
-      }
+      props.addAList(player)
     }
   }
 
@@ -30,11 +24,10 @@ function SearchBarA(props) {
 
   return(
     <div className="searchBar">
-      <input type="text" value={searchTerm} onChange={handleChange} size="10"></input>
+      <input type="text" className="search-input" value={searchTerm} onChange={handleChange} size="20"></input>
       {searchTerm !== "" &&
-
         results.slice(0,3).map((result, idx) => (
-          result !== undefined && <div key={idx}>
+          result !== undefined && <div className="search-name" key={idx}>
             <span onClick={()=> { handleClick(result) }}>{result.name || []}</span>
           </div>
         ))
