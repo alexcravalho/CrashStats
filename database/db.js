@@ -7,6 +7,8 @@ const { Schema } = mongoose;
 const playerSchema = new Schema({
   id: Number,
   name: String,
+  firstName: String,
+  lastName: String,
   position: String,
   team: String,
   height: String,
