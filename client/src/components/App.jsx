@@ -44,7 +44,7 @@ function App(props) {
   }
 
   const compareOverallScores = () => {
-    if (teamAOverall > teamBOverall) {
+    if (Number(teamAOverall) > Number(teamBOverall)) {
       var difference = teamAOverall - teamBOverall;
       var result = (difference / teamAOverall) * 100;
       if (result <= 5) {
@@ -53,16 +53,17 @@ function App(props) {
         setFairTrade('bad');
       }
     }
-    if (teamBOverall > teamAOverall) {
+    if (Number(teamBOverall) > Number(teamAOverall)) {
       var difference = teamBOverall - teamAOverall;
       var result = (difference / teamBOverall) * 100;
+      console.log(result)
       if (result <= 5) {
         setFairTrade('good');
       } else {
         setFairTrade('bad');
       }
     }
-    if (teamAOverall === teamBOverall) {
+    if (Number(teamAOverall) === Number(teamBOverall)) {
       setFairTrade('good')
     }
   }
