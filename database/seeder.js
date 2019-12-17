@@ -7,6 +7,8 @@ async function addData() {
     const obj = {
       id: i,
       name: array[i].name,
+      firstName: array[i].firstName,
+      lastName: array[i].lastName,
       position: array[i].position,
       team: array[i].team,
       height: array[i].height,
