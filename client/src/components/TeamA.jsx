@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import SearchBarA from './SearchBarA.jsx';
+import ListNameA from './ListNameA.jsx';
 
 function TeamA(props) {
 
@@ -23,14 +24,6 @@ function TeamA(props) {
     setAList(newList)
   }
 
-  const handleDelete = (player) => {
-    var playerSelect = confirm(`Are you sure you want to remove ${player.name} to the trade?`)
-    if (playerSelect) {
-      alert(`${player.name} was removed from the trade`)
-      deleteAList(player)
-    }
-  }
-
   useEffect(() => {
     var newVal = 0;
     if (aList) {
@@ -49,7 +42,7 @@ function TeamA(props) {
       <SearchBarA aList={aList} addAList={addAList} playerList={props.playerList}/>
       <label className="heavy">Traded Players</label><div>
         {aList !== undefined && aList.map((player, idx) => (
-          <div key={idx} onClick={() => { handleDelete(player) } }>{player.name}</div>
+            <ListNameA key={idx} deleteAList={deleteAList} player={player}/>
         ))}
       </div>
     </div>
