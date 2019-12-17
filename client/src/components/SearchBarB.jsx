@@ -25,7 +25,7 @@ function SearchBarB(props) {
   const results = !searchTerm
   ? props.playerList
   : props.playerList.filter(player =>
-      (player.name.toLowerCase().includes(searchTerm.toLocaleLowerCase()) && player.name[0].toLowerCase() === searchTerm[0].toLocaleLowerCase())
+      (player.name.toLowerCase().includes(searchTerm.toLocaleLowerCase()) && (player.firstName[0].toLowerCase() === searchTerm[0].toLocaleLowerCase() || player.lastName[0].toLowerCase() === searchTerm[0].toLocaleLowerCase()))
     );
 
   return(
