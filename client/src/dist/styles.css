@@ -1,7 +1,7 @@
 
 body {
   display: flex;
-  background-image: url('./images/HockeyArena.jpg');
+  background-image: url('https://crash-stats.s3-us-west-2.amazonaws.com/HockeyArena.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: scroll;
