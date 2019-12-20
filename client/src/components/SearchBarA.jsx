@@ -24,7 +24,8 @@ function SearchBarA(props) {
 
   return(
     <div className="searchBar">
-      <input type="text" className="search-input" value={searchTerm} onChange={handleChange} size="20"></input>
+      <label className="search-label" htmlFor="search-inputA">Search</label>
+      <input type="text" id="search-inputA" value={searchTerm} onChange={handleChange} size="20"></input>
       {searchTerm !== "" &&
         results.slice(0,3).map((result, idx) => (
           result !== undefined && <div className="search-name" key={idx}>
