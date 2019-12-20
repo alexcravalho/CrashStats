@@ -139,7 +139,7 @@ h2 {
   color: #fff !important;
   text-transform: uppercase;
   text-decoration: none;
-  background: #ed3330;
+  background: #B01212;
   padding: 20px;
   margin-top: 20px;
   margin-bottom: 10px;
@@ -211,6 +211,12 @@ h2 {
     margin: 5px;
   }
 
-  .search-input {
+  #search-inputA, #search-inputB {
     width: 100%;
+  }
+
+  .search-label {
+    font-size: 5px;
+    color: #fffdd0;
+    opacity: .0;
   }
