@@ -81,7 +81,7 @@ function App(props) {
         <h1>Crash Stats</h1>
         <h1>Trade Calculator</h1>
       </div>
-      <img src="images/CrashLogo.png" alt="logo"></img>
+      <img src="https://crash-stats.s3-us-west-2.amazonaws.com/CrashLogo.png" alt="logo"></img>
       {fairTrade === '' && <div className="button_cont" align="center"><div className="example_a" onClick={compareOverallScores}>TRADE</div></div>}
       {fairTrade === 'good' && <div className="fair-trade">Fair Trade ✓</div>}
       {fairTrade === 'bad' && <div className="bad-trade">Bad Trade ✘</div>}
