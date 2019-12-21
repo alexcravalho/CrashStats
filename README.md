@@ -22,5 +22,3 @@ A bad trade is when one of the teams pays more than %5 to make the trade.
   - npm start
 
 3. Navigate to 'http://localhost:7000' on any browser
-
-** Note some images have been omitted from this repo to avoid copyright infringement.
