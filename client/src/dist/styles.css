@@ -49,9 +49,13 @@ h2 {
   align-items: center;
   justify-content: center;
   position: relative;
-  width: 100%;
+  width: 80%;
   z-index: 1;
-  margin: 50px;
+  margin: 30px;
+}
+
+.main-center {
+ width: 100%;
 }
 
 .main-color {
