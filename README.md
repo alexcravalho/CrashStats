@@ -19,6 +19,27 @@ A bad trade is when one of the teams pays more than %5 to make the trade.
 2. In the root directory of the repo run
   - npm install
   - npm run build
+
+3. Prepare MongoDB
+  - Make sure MongoDB is available locally.
+  - Follow instructions provided in the mongoDB docs here:
+      https://docs.mongodb.com/manual/administration/install-community/
+  - Make sure the mongo service is started and running
+
+4. Seed Database
+  - In the root directory run
+    - npm run create
+  - Find the players.json file
+  - Add a single open bracket "[" as the very first character of the file
+  - Remove very last character of the file (a comma)
+  - Add a single closing bracket "]" as the very last character of the file
+  - In the root directory run
+    - npm run seed
+      (You should see the message "Database complete" on your terminal)
+
+5. Start the local Express server
+  In the terminal run:
   - npm start
 
-3. Navigate to 'http://localhost:7000' on any browser
+6. The Application is ready to use:
+  - Navigate to 'http://localhost:7000' on any browser
