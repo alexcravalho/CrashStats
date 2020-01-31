@@ -38,8 +38,8 @@ A bad trade is when one of the teams pays more than %5 to make the trade.
       (You should see the message "Database complete" on your terminal)
 
 5. Start the local Express server
-  In the terminal run:
-  - npm start
+  - In the terminal run
+    - npm start
 
 6. The Application is ready to use:
   - Navigate to 'http://localhost:7000' on any browser
