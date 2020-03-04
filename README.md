@@ -8,7 +8,7 @@ The NHL public api is available under the following copyright:
 
 # Info
 
-The Overall scores of each player are related to their in game stats with different weight assigned to each sta category.
+The Overall scores of each player are related to their in game stats with different weight assigned to each stat category.
 
 A good trade is when the two teams Total Value is within %5 of the other team.
 A bad trade is when one of the teams pays more than %5 to make the trade.
